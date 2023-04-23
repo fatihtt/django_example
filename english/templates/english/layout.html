@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'english/styles.css' %}">
+    <script src="{% static 'english/layout.js' %}"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="divMain">
+        <div class="divMainScreen">
+            <header>
+                <div class="divLogo">
+                    <h1>LOGO</h1>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="divGreet">
+                    Hello {{ user.username }},
+                    <div class="divAccountLogo">
+                        <span class="material-icons md-30">account_circle</span>
+                        <div class="sub-m">
+                            <div class="m-item">
+                                <span class="material-icons">logout</span>
+                                <a class="a-button logout" href="#">Logout</a>
+                            </div>
+                            <div class="m-item">
+                                <span class="material-icons">settings</span>
+                                Settings
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </header>
+            <main>
+                {% block body %}
+                {% endblock %}
+            </main>
+            <footer>
+                <span>Copyright © 2023 logo.com</span>
+                <a href="#" class="m-left20" data-action="privacy" data-list_id="3">Privacy</a>
+                <a href="#" class="m-left20" data-action="send_feedback" data-list_id="3">Feedback</a>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

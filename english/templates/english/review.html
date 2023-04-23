@@ -1,0 +1,56 @@
+{% extends "english/layout.html" %}
+{% load static %}
+
+{% block head %}
+<script src="{% static 'english/review.js' %}"></script>
+<script data-my_list="{{ my_list }}" data-my_words="{{ my_words }}" data-word_images="{{ word_images }}" data-example_lists="{{ example_lists }}">
+    const data = document.currentScript.dataset;
+    const my_list = data.my_list;
+    const my_words = data.my_words;
+    const word_images = data.word_images;
+    const examples = data.example_lists;
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="divReviewScreen">
+        <div class="screen">
+            <!-- START SCREEN -->
+            <div class="startScreen">
+                <div class="startSettings">
+                    <input type="checkbox" name="settingsAutoPlay" id="settingsAutoPlay">
+                    <label for="settingsAutoPlay">Auto Play</label>
+                    <div class="hidden divReviewSecond">
+                        <input type="text" class="reviewSecond" value="5" name="reviewSecond" id="reviewSecond">
+                        <label for="reviewSecond">second</label>
+                    </div>
+                    <input type="checkbox" name="settingsAutoSpeech" id="settingsAutoSpeech">
+                    <label for="settingsAutoSpeech">Auto Speech</label>
+                </div>
+                <div class="startButton">
+                    <button class="buttonStartReview">Start</button>
+                </div>
+            </div>
+            <!-- QUESTION SCREEN -->
+            <div class="divReviewQuestion hidden">
+                <img src="/english/word_images/acquaintance.png" alt="Question Image" class="reviewImage">
+                <input type="text" class="reviewAnswer" placeholder="Guess the word!">
+                <div class="reviewSituation">1 / 1</div>
+            </div>
+            <!-- ANSWER SCREEN -->
+            <div class="divReviewAnswer hidden">
+                <div>
+                    <p class="pReviewMeaning">(n, C1) a person that you have met but do not know well</p>
+                    <p class="pReviewExamples">
+                        <ul>
+                            <li>He's just a business acquaintance.</li>
+                        </ul>
+                    </p>
+                </div>
+                <div>
+                    <button class="buttonNext">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

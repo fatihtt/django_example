@@ -1,0 +1,17 @@
+{% extends "english/layout.html" %}
+
+{% block body %}
+    {% if message %}
+        <div class="divSMessage">{{ message }}</div>
+    {% endif %}
+
+    <form class="formSignUp" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input type="text", name="username", placeholder="Username">
+        <input type="password", name="password", placeholder="Password">
+        <input class="button_def" type="submit", value="Login">
+    </form>
+    <div class="divSignup">
+        <a href="signup">Sign Up</a>
+    </div>
+{% endblock %}

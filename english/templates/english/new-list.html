@@ -1,0 +1,47 @@
+{% extends "english/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'english/new-list.css' %}">
+<script data-words="{{ words }}">
+    const data = document.currentScript.dataset;
+    const words = data.words;
+</script>
+<script src="{% static 'english/new-list.js' %}"></script>
+{% endblock %}
+    
+{% block body %}
+<div class="divFilter">
+    <div class="divFilterLevel">
+        <div data-code="a1" class="divFilterLevelItem">A1</div>
+        <div data-code="a2" class="divFilterLevelItem">A2</div>
+        <div data-code="b1" class="divFilterLevelItem">B1</div>
+        <div data-code="b2" class="divFilterLevelItem">B2</div>
+        <div data-code="c1" class="divFilterLevelItem">C1</div>
+        <div data-code="c2" class="divFilterLevelItem">C2</div>
+        <div data-code="c+" class="divFilterLevelItem">C+</div>
+    </div>
+    <div class="divShowSettings">
+        <div class="divSelectAll">
+            <input type="checkbox" name="selectAll" id="selectAll">
+        </div>
+        <div class="divPageAmount">
+            <label for="ddPageAmount">Amount per Page</label>
+            <select name="ddPageAmount" id="ddPageAmount">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+    </div>
+    <div class="divWordSelection">
+        
+    </div>
+    <div class="divSummary"></div>
+    <div class="divSubmit">
+        <button class="newListButton">Create New List</button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "english/layout.html" %}
+{% load static %}
+
+{% block head %}
+<script data-words_s="{{ words_s }}">
+    const data = document.currentScript.dataset;
+    const words_s = data.words_s;
+    const my_words = data.my_words;
+    const word_images = data.word_images;
+    const examples = data.example_lists;
+</script>
+<script src="{% static 'english/my-words-review.js' %}"></script>
+<link rel="stylesheet" href="{% static 'english/my-words-review.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="divWReview">
+    <div class="divHome">
+        <span class="spanHome material-icons md-50">home</span>
+    </div>
+    <div class="divImage">
+        <img src="/english/word_images/acquaintance.png" alt="acquaintance">
+    </div>
+    <div class="divExplanation">
+        <p class="pWord">acquaintance</p>
+        <p class="pMeaning">someone who you know but do not know well</p>
+        <ul class="ulExample">
+            <li>
+                He's just a business acquaintance.
+            </li>
+            <li>
+                a business acquaintance.
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+.divFilterLevel {
+    margin-top: 40px;
+    font-size: x-small;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.divFilterLevelItem {
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: var(--background1);
+    cursor: pointer;
+}
+.divFilterLevelItem.active {
+    background-color: var(--color1);
+    color: white;
+}
+.divPageAmount {
+    font-size: smaller;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.divSelectWordItem {
+    font-size: smaller;
+    margin: 10px 0;
+}
+.divShowSettings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.divWordSelection {
+    display: flex;
+    flex-direction: column;
+}
+.divPagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--color1);
+    align-self: flex-end;
+    width: 100%;
+}
+.spanPage {
+    font-size: smaller;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.spanPage.active {
+    cursor: default;
+}
+.spanPage.link {
+    cursor: pointer;
+    color: var(--color1);
+}
+.spanPage.link:hover {
+    text-decoration: underline;
+}
+
+.divSubmit {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.divSubmit > button {
+    background-color: var(--color1);
+    color: white;
+    border: 0px solid black;
+    padding: 7px 30px;
+    font-size: inherit;
+    border-radius: 4px;
+}
+.divSummary {
+    margin-top: 30px;
+    font-size: smaller;
+}
+.divWarning {
+    color: red;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

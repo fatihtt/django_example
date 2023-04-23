@@ -1,0 +1,51 @@
+{% extends "english/layout.html" %}
+{% load static %}
+{% load english_extras %}
+
+{% block head %}
+    <script src="{% static 'english/index.js' %}"></script>
+    <title>My lovely Django ! - home</title>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h3>MY LEARNING LISTS:</h3>
+    <div class="div-list">
+        {% for dat in data %}
+        <div class="div-list-item">
+            <div class="div-list-item-head">
+                <span class="material-icons m-right10 message-warning">circle</span>
+                {{ dat.0 }}. Last review: {% if dat.1 == "not yet" %}no review yet{% else %}{{ dat.1 | convert_date_v1 }}{% endif %}
+            </div>
+            <div class="div-list-item-foot font-smaller">
+                <a href="#" class="button-review" data-action="review" data-list_id="{{ dat.0.id }}">Review</a>
+                <a href="#" class="button-learned m-left20" data-action="sand_to_my_words" data-list_id="{{ dat.0.id }}">Sand To My Words</a>
+            </div>
+        </div>
+        {% empty %}
+            <div>No learning list</div>
+        {% endfor %}
+        <div class="div-list-item-foot m-top10">
+            <a href="#" class="newListButton" data-action="new-learning list">+ Create New List</a>
+        </div>
+    </div>
+    <h3>MY WORDS:</h3>
+    <div class="div-list">
+        <div class="div-list-item">
+            <div class="div-list-item-head">
+                {{ learned_list_count }} List{% if learned_list_count > 1 %}s{% endif %}, {{ learned_words }} Words;
+                <span class="{{ today_reviewed_message_class }}"> {{ today_reviewed }} </span> reviewed today
+            </div>
+            <div class="div-list-item-foot font-smaller">
+                {# will be deleted #}
+                {% if learned_words > 0 or learned_words == 0 %}
+                <a href="#" class="myWordsReview" data-action="words-review">Review</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}
